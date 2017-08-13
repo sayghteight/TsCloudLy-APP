@@ -1,5 +1,8 @@
 ## Bienvenidos a Control Panel TS3
 
+[![Percentage of issues still open](http://isitmaintained.com/badge/open/sayghteight/CPTS3.svg)](http://isitmaintained.com/project/sayghteight/CPTS3 "Percentage of issues still open")[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/sayghteight/CPTS3.svg)](http://isitmaintained.com/project/sayghteight/CPTS3 "Average time to resolve an issue")
+
+
 Nuestro proposito es proveer de un panel de servicios de TS3 gratuito, de esta forma buscamos la posibilidad de ser uno de los paneles más usados.
 
 ### Features
