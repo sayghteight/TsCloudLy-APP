@@ -18,7 +18,8 @@ addons:
 cache:
   - apt
 install:
-  - cd travisCI/install-apache.sh
+  - cd travisCI/
+  - ./install-apache.sh
 script:
   # Do a lookup on local.dev hostname set above 
   - nslookup local.dev
@@ -41,7 +42,8 @@ script:
   - STATUSCODE=$(curl -I http://local.dev:80/apache.php -e http://zx6.ru &> /dev/stderr --write-out "%{http_code}") | if test $STATUSCODE 403; then exit 0; fi
   - cat /tmp/error.log
 before_deploy:
-  - cd travisCI/deploy.sh
+  - cd travisCI
+  - ./deploy.sh
 deploy:
   provider: releases
   api_key:
