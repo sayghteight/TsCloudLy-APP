@@ -17,6 +17,7 @@ addons:
     - local.dev
 cache:
   - apt
+install:
 script:
   # Install Apache2
   sudo apt-get update
