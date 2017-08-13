@@ -11,74 +11,11 @@ matrix:
 sudo: required
 dist: trusty
 php:
-    - 5.6
-addons:
-  hosts:
-    - local.dev
-cache:
-  - apt
-install:
+  - 5.4
+  - 5.5
+
+before_install:
+  - cd php
+
 script:
-  # Install Apache2
-  sudo apt-get update
-  sudo apt-get install -y --force-yes apache2
-  # Add PHP 7.0 Repository
-  sudo add-apt-repository -y ppa:ondrej/php
-  # Install PHP 7.0
-  sudo apt-get update
-  sudo apt-get install -y --force-yes php7.0 libapache2-mod-php7.0 php7.0-fpm
-  # Copy our virtual host template to sites-enabled overwriting the default site conf
-  sudo cp travisCI/defaultsite.tpl /etc/apache2/sites-available/000-default.conf
-  # Copy basic testing files into /var/www
-  sudo cp www/info.php /var/www/info.php
-  sudo cp www/apache.php /var/www/apache.php
-  # Enable mod rewrite module
-  sudo a2enmod rewrite
-  # Set ServerName Globally
-  sudo cp travisCI/servername.tpl /etc/apache2/conf-available/servername.conf
-  # Add testing of Apache Bad Bot Blocker
-  sudo mkdir /etc/apache2/custom.d
-  cd /etc/apache2/custom.d
-  sudo wget https://raw.githubusercontent.com/mitchellkrogza/apache-ultimate-bad-bot-blocker/master/custom.d/globalblacklist.conf
-  sudo wget https://raw.githubusercontent.com/mitchellkrogza/apache-ultimate-bad-bot-blocker/master/custom.d/whitelist-ips.conf
-  sudo wget https://raw.githubusercontent.com/mitchellkrogza/apache-ultimate-bad-bot-blocker/master/custom.d/whitelist-domains.conf
-  sudo a2enconf servername
-  # Restart apache
-  sudo service apache2 restart
-  # Restart PHP
-  sudo service php7.0-fpm restart
-  # Do a lookup on local.dev hostname set above 
-  - nslookup local.dev
-  # Do an Apache Config Test
-  - sudo apache2ctl configtest
-  # Check Apache Version
-  - sudo apache2 -v
-  # Check PHP Version
-  - sudo php -v
-  # Check if the site responds OK
-  - curl -vsf 'http://local.dev:80/apache.php' &> /dev/stdout
-  # Test if PHP is working
-  - curl -vsf 'http://local.dev:80/info.php' &> /dev/stdout
-  # Test a Good User-Agent String against our site (later we test bad bots here)
-  - curl -A "googlebot" http://local.dev:80/apache.php &> /dev/stdout
-  # Test Some Bad Bots and Referrers
-  - STATUSCODE=$(curl -A "80legs" http://local.dev:80/apache.php &> /dev/stderr --write-out "%{http_code}") | if test $STATUSCODE 403; then exit 0; fi
-  - STATUSCODE=$(curl -A "masscan" http://local.dev:80/apache.php &> /dev/stderr --write-out "%{http_code}") | if test $STATUSCODE 403; then exit 0; fi
-  - STATUSCODE=$(curl -I http://local.dev:80/apache.php -e http://100dollars-seo.com &> /dev/stderr --write-out "%{http_code}") | if test $STATUSCODE 403; then exit 0; fi
-  - STATUSCODE=$(curl -I http://local.dev:80/apache.php -e http://zx6.ru &> /dev/stderr --write-out "%{http_code}") | if test $STATUSCODE 403; then exit 0; fi
-  - cat /tmp/error.log
-before_deploy:
-  - travisCI/deploy.sh
-deploy:
-  provider: releases
-  api_key:
-    secure: ${GH_TOKEN}
-  file:
-  - "README.md"
-  skip_cleanup: true
-  on:
-    repo: sayghteight/CPTS3
-    tags: false
-    all_branches: true
-notifications:
-    email: false
+  - phpunit --bootstrap src/autoload.php --debug --coverage-text test
