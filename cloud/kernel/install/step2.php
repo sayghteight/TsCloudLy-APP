@@ -20,11 +20,28 @@
                     </div>
 
 <form method="POST" action="step-3.php">
-    Nom de la base de donnée : <input type="text" name="databaseName" class="form-control" required>
-    Adresse de la base de donnée : <input type="text" name="databaseHost" class="form-control" required>
-    Nom de l'utilisateur : <input type="text" name="databaseUser"  class="form-control" required>
-    Mot de passe : <input type="password" name="databasePassword" class="form-control">
-    Port (3306 par défaut) : <input type="number" name="databasePort" value="3306" class="form-control" required>
+    
+       	<div class="form-group">
+		<label class="sr-only" for="form-first-name">Hostname</label>
+		<input type="text" name="dbhostname" placeholder="DB Hostname" class="form-first-name form-control">
+		</div>
+		<div class="form-group">
+		<label class="sr-only" for="form-password">User</label>
+		<input type="password" name="dbuser" placeholder="DB User" class="form-last-name form-control">
+		</div>
+		<div class="form-group">
+		<label class="sr-only" for="form-password">Password</label>
+		<input type="password" name="dbpassw" placeholder="DB Pass" class="form-last-name form-control">
+		</div>
+		<div class="form-group">
+		<label class="sr-only" for="form-email">Name DB</label>
+		<input type="text" name="dbname" placeholder="DB Name" class="form-email form-control">
+	    </div>
+		<div class="form-group">
+		<label class="sr-only" for="form-email">Port</label>
+		<input type="text" name="dbport" placeholder="Port default is 3306" class="form-email form-control">
+	    </div>
+    
     
     <input type="hidden" name="token" class="btn btn-default form-control" value="<?php echo $_SESSION['token'] ?>">
     
