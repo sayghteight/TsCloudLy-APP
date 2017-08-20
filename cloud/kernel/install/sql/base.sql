@@ -5,7 +5,7 @@
 CREATE TABLE IF NOT EXISTS `translate_panel` (
   `record_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `trans_section` varchar(20) CHARACTER SET latin1 NOT NULL,
-  `estado` set('sp','en','fr') NOT NULL DEFAULT 'sp',
+  `trans_lang` set('sp','en','fr') NOT NULL DEFAULT 'sp',
   `trans_text` longtext COLLATE utf8_spanish_ci NOT NULL,
   PRIMARY KEY (`record_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=49 ;
