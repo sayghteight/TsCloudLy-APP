@@ -19,7 +19,7 @@
                         </div>
                     </div>
 
-<form method="POST" action="step-3.php">
+<form method="POST" action="step3.php">
     
        	<div class="form-group">
 		<label class="sr-only" for="form-first-name">Hostname</label>
@@ -27,7 +27,7 @@
 		</div>
 		<div class="form-group">
 		<label class="sr-only" for="form-password">User</label>
-		<input type="password" name="dbuser" placeholder="DB User" class="form-last-name form-control">
+		<input type="text" name="dbuser" placeholder="DB User" class="form-last-name form-control">
 		</div>
 		<div class="form-group">
 		<label class="sr-only" for="form-password">Password</label>
