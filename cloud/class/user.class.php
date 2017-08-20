@@ -1,7 +1,7 @@
 <?php
 require_once 'conexion.php';
 
-class Usuarios extends Conexion {
+class Usuario extends Conexion {
 
     public $mysqli;
     public $data;
@@ -48,28 +48,28 @@ public function create_user() {
         $registros = $resultado->num_rows; 
 
         if ($registros == 0) {
-        //    $resultado = $this->mysqli->query("INSERT INTO usuarios(nick, password, nombre, correo, tipo, facebook, twitter, fechaderegistro, ultimoacceso, activo, avatar, firma) 
-        //      VALUES('$nick','$pass', '$nombre', '$correo', '$tipo', '$facebook', '$twitter', now(), now(), '$activo', '$avatar', '$firma')"); 
-         
+            /*
+            $resultado = $this->mysqli->query("INSERT INTO usuarios(nick, password, nombre, correo, tipo, facebook, twitter, fechaderegistro, ultimoacceso, activo, avatar, firma) 
+              VALUES('$nick','$pass', '$nombre', '$correo', '$tipo', '$facebook', '$twitter', now(), now(), '$activo', '$avatar', '$firma')"); 
+            */
+            
+            $resultado = $this->mysqli->query("INSERT INTO users(nick, password, correo, rango, activo) VALUES('$nick', '$pass', '$correo', '$rango', '$activo')");
+            
          
           
             // OBTENEMOS EL ULTIMO ID
             $id = $this->mysqli->insert_id;
-            // OLD VARIABLES
-            /*      
-            $_SESSION["id"] = $id;
-            $_SESSION["nombre"] = $nombre;
-            $_SESSION["tipo"] = $tipo;
-            $_SESSION["rango"] = $rango;
-            */
             
+            $_SESSION["usuario"] = $id;
+            $_SESSION["rango"] = $rango;
+            $_SESSION["id"] = $id;
             
             echo "<script type='text/javascript'>
-            window.location='index.php';
+            window.location='dashboard.php';
             </script>";
         } else {
             echo "<script type='text/javascript'>
-            window.location='ucp.php?m=2';
+            window.location='index.php?r=1';
             </script>";
         }
     

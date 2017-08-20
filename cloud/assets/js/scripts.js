@@ -4,7 +4,7 @@ jQuery(document).ready(function() {
     /*
         Fullscreen background
     */
-    $.backstretch("assets/img/backgrounds/1.jpg");
+    $.backstretch("https://cpts3-sayghteight.c9users.io/cloud/assets/img/backgrounds/1.jpg");
     
     /*
         Login form validation
