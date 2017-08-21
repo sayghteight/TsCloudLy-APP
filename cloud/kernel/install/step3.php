@@ -2,6 +2,10 @@
 
 require_once "html/header.php";
 
+
+
+
+
 if (isset($_POST['dbhostname'])
 && isset($_POST['dbuser'])
 && isset($_POST['dbpassw'])
@@ -25,9 +29,14 @@ if (isset($_POST['dbhostname'])
             $dbport = htmlspecialchars(addslashes($_POST['dbport']));
             
             // Creamos el fichero de configuración
-            $openSql = fopen('../config.php', 'w');
+            $openSql = fopen('../database/class.db.php', 'w');
                fwrite($openSql, "
 		    <?php
+		    
+		    session_start();
+		    abstract class Conexion{
+            public function conectar() {
+      
             \$dsn = '$dbname';
             \$host='$dbhostname';
             \$port='$dbport';
@@ -43,7 +52,8 @@ if (isset($_POST['dbhostname'])
            \$mysqli->set_charset('utf8');
       
             return \$mysqli;
-		
+            }
+            }
 		    ?>");
 		    fclose($openSql);
         }
@@ -65,19 +75,6 @@ else
     echo "Debe rellenar todos los datos";
 }
 
-
-?>
-
-<?php
-
-//On inclue le fichier précédement crée
-    require_once("../config.php");
-// Creación de las bases de datos
-$texto = file_get_contents("sql/base.sql");
-$sentencia = explode(";", $texto);
-for($i = 0; $i < (count($sentencia)-1); $i++){
-$db_selected = $mysqli->query("$sentencia[$i];") or die(mysql_error()); 
-}
 
 ?>
 
@@ -108,7 +105,7 @@ $db_selected = $mysqli->query("$sentencia[$i];") or die(mysql_error());
                         </div>
                     </div>
 
-		    <form method="POST" action="step4.php">
+		    <form method="POST" action="execute/e_installdb.php">
 		          <button type="submit" class="btn form-control" name="install"> Continuar con el siguiente paso --> </button>
 		    </form>
 

@@ -9,12 +9,6 @@ if (isset($_POST['url'])
     if ($_POST['tokenconfig'] == $_SESSION['tokenconfig'])
     {
         $_SESSION['tokenconfig'] = NULL;
-            // Recuperamos los valores del formulario
-            
-            /*
-            $dbname = htmlspecialchars(addslashes($_POST['dbname']));
-            $dbhostname = htmlspecialchars(addslashes($_POST['dbhostname']));
-            */
             
             $url = htmlspecialchars(addslashes($_POST['url']));
             $sitename = htmlspecialchars(addslashes($_POST['namepanel']));
@@ -66,7 +60,7 @@ else
                         </div>
                     </div>
 
-		    <form method="POST" action="step4.php">
+		    <form method="POST" action="step6.php">
 		          <button type="submit" class="btn form-control" name="install"> Continuar con el siguiente paso --> </button>
 		    </form>
 

@@ -1,5 +1,5 @@
 <?php
-require_once '../../config.php';
+require_once '../../database/class.db.php'; // deja de ser dependiente del config.php
 
 class Admin extends Conexion {
 
@@ -15,47 +15,38 @@ class Admin extends Conexion {
 
 
 
-public function create_user() {
-    
-    parent::conectar();
-    $pass = sha1($_POST["password"]);
-    $rango = 1;
-    $action = 1;
+public function create_admin() {
+       parent::conectar();
+        $pass = sha1($_POST["password"]);
+        $tipo = 3; // 1 usuario, 2 mod, 3 ACP
+        $activo = 1;
 
-    $nick = $_POST['usuario'];
-    $correo = $_POST['correo'];
-    
-      // VALIDAMOS SI EXISTE EL NICK
+        $nick = $_POST['user'];
+        $correo = $_POST['email'];
+        // VALIDAMOS SI EXISTE EL NICK
         $resultado = $this->mysqli->query("select nick from usuarios where nick = '$nick'"); 
 
         $registros = $resultado->num_rows; 
 
         if ($registros == 0) {
-            /*
-            $resultado = $this->mysqli->query("INSERT INTO usuarios(nick, password, nombre, correo, tipo, facebook, twitter, fechaderegistro, ultimoacceso, activo, avatar, firma) 
-              VALUES('$nick','$pass', '$nombre', '$correo', '$tipo', '$facebook', '$twitter', now(), now(), '$activo', '$avatar', '$firma')"); 
-            */
-            
-            $resultado = $this->mysqli->query("INSERT INTO users(nick, password, correo, rango, activo) VALUES('$nick', '$pass', '$correo', '$rango', '$activo')");
-            
-         
-          
+            $resultado = $this->mysqli->query("INSERT INTO usuarios(nick, password, correo, rango, fechaderegistro, ultimoacceso, activo) 
+                VALUES('$nick','$pass', '$correo', '$tipo', now(), now(), '$activo')"); 
             // OBTENEMOS EL ULTIMO ID
             $id = $this->mysqli->insert_id;
-            
-            $_SESSION["usuario"] = $id;
-            $_SESSION["rango"] = $rango;
+            // creamos las sesiones para que automaticamente puedas comentar o publicar
             $_SESSION["id"] = $id;
-            
+            $_SESSION["nombre"] = $nombre;
+            $_SESSION["tipo"] = $tipo;
+            $_SESSION["rango"] = $rango;
+
             echo "<script type='text/javascript'>
-            window.location='dashboard.php';
+            window.location='../step7.php';
             </script>";
         } else {
             echo "<script type='text/javascript'>
-            window.location='index.php?r=1';
+            window.location='step6.php';
             </script>";
         }
     
-    
-    
+}
 }

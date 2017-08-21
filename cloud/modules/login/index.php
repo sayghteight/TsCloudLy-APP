@@ -1,6 +1,6 @@
 <?php
 // Config 
-require_once("../../kernel/config.php");
+require_once("../../kernel/database/class.db.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">

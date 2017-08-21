@@ -1,5 +1,5 @@
 <?php
-$config = 'kernel/config.php';
+$config = 'kernel/database/class.db.php';
 $size = filesize($config);
 
 if ($size == 0) 
