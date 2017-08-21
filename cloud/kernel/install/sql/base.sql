@@ -35,17 +35,11 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nick` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
-  `nombre` varchar(150) NOT NULL,
   `correo` varchar(100) NOT NULL,
-  `tipo` int(2) NOT NULL,
-  `DZcoin` decimal(65,0) NOT NULL,
-  `facebook` varchar(250) NOT NULL,
-  `twitter` varchar(250) NOT NULL,
+  `rango` int(2) NOT NULL,
   `fechaderegistro` date NOT NULL,
   `ultimoacceso` date NOT NULL,
   `activo` int(2) NOT NULL,
-  `avatar` varchar(200) NOT NULL,
-  `firma` text NOT NULL,
   `ts3activated` set('true','false') NOT NULL DEFAULT 'false',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
