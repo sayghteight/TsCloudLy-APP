@@ -115,7 +115,7 @@ public function update_user() {
 
 
 
-public function deleteFollow() {
+public function del_acc() {
         parent::conectar();
 
         $nickdel = $_SESSION["usuario"]; 
