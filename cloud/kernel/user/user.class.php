@@ -53,7 +53,7 @@ public function create_user() {
               VALUES('$nick','$pass', '$nombre', '$correo', '$tipo', '$facebook', '$twitter', now(), now(), '$activo', '$avatar', '$firma')"); 
             */
             
-            $resultado = $this->mysqli->query("INSERT INTO users(nick, password, correo, rango, activo) VALUES('$nick', '$pass', '$correo', '$rango', '$activo')");
+            $resultado = $this->mysqli->query("INSERT INTO usuarios(nick, password, correo, rango, activo) VALUES('$nick', '$pass', '$correo', '$rango', '$activo')");
             
          
           
@@ -69,7 +69,7 @@ public function create_user() {
             </script>";
         } else {
             echo "<script type='text/javascript'>
-            window.location='index.php?r=1';
+            window.location='../../index.php?r=1';
             </script>";
         }
     
@@ -79,15 +79,68 @@ public function create_user() {
 
 
 /*
-* Actualización de cuenta
+* Actualización de cuenta (PRE-RELEASE)
 */
 
+public function update_user() {
+    
+    parent::conectar();
+    $nick_session = $_SESSION["usuario"];
+    
+    $pass = sha1($_POST[""]);
+    $correo = $_POST[""];
+    
+    // VALIDAMOS USER MEDIANTE SESSION
+    
+    $updateform = $this->mysqli->query("SELECT nick from nick = '$nick_session'");
+    
+    $update = $updateform->num_rows;
+    
+    if ($update == 0) {
+        
+        header("Location : index.php");
+        
+        
+    }else{
+        
+          $resultado = $this->mysqli->query("UPDATE usuarios SET correo = '$correo' and password = '$pass' WHERE nick = '$nick_session'");
+        
+    }
+}
 
 
 /*
-* Cancelación de cuenta de usuario
+* Cancelación de cuenta de usuario (Pre-Release)
 */
 
+
+
+public function deleteFollow() {
+        parent::conectar();
+
+        $nickdel = $_SESSION["usuario"]; 
+        
+        // Validamos que el usuario este disponible para borrar.
+        
+        $delete = $this->mysqli->query("SELECT * from usuarios WHERE nick='$nickdel'");
+        $deluser = $delete->num_rows;
+        
+        if ($deluser == 0){
+            echo '<script>alert(\'No eres el usuario que quieres borrar.\')</script>';
+            echo "<script type='text/javascript'>
+            window.location='Conexion::ruta()user.php';
+            </script>";
+        } else {
+            
+            $cancelaruser = $this->mysqli->query("DELETE FROM usuarios WHERE nick='$nickdel'");
+            
+            echo '<script>alert(\'Usuario removido con éxito\')</script>';
+            echo "<script type='text/javascript'>
+            window.location='Conexion::ruta()user.php';
+            </script>";
+            
+        }
+}
 
 
 //****************************************
@@ -116,9 +169,9 @@ public function logueo() {
             $_SESSION["tipo"] = $key["rango"];
             
                 switch ($_SESSION["tipo"]) {
-                    case 1 : header ("Location: user.php"); // Usuario
+                    case 1 : header ("Location: index.php?p=user"); // Usuario
                     break;
-                    case 2 : header ("Location: cloud.php"); // Distribuidor
+                    case 2 : header ("Location: index.php?p=cloud"); // Distribuidor
                     break;
                     case 3: header("Location: admin.php"); // Admin
                     break;

@@ -53,6 +53,10 @@ if (isset($_POST['dbhostname'])
       
             return \$mysqli;
             }
+            
+            public function ruta(){
+                
+            }
             }
 		    ?>");
 		    fclose($openSql);
