@@ -1,7 +1,6 @@
 <?php require_once("html/header.php"); ?>
 
 
-
         <!-- Top content -->
         <div class="top-content">
         	

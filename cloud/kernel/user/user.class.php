@@ -1,5 +1,5 @@
 <?php
-require_once 'conexion.php';
+require_once '../../kernel/database/class.db.php';
 
 class Usuario extends Conexion {
 
@@ -94,10 +94,10 @@ public function create_user() {
 // loguea al usuario
 //****************************************
 public function logueo() {
-        $pass = sha1($_POST["password"]);
-        $usuario = $_POST["usuario"];
+        $pass = sha1($_POST["form-password"]);
+        $usuario = $_POST["form-username"];
 
-        $resultado = $this->mysqli->query("SELECT id, nombre, tipo from usuarios where nick = '$usuario' and password = '$pass'");
+        $resultado = $this->mysqli->query("SELECT id, nick, rango from usuarios where nick = '$usuario' and password = '$pass'");
 
         while ( $fila = $resultado->fetch_assoc() ) {
             $this->login[] = $fila;
@@ -125,7 +125,7 @@ public function logueo() {
                 }
             }
         } else {
-            header("Location: login.php?m=1");
+            header("Location: index.php");
         }
 }
 
