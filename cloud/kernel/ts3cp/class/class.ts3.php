@@ -1,5 +1,8 @@
 <?php
 
+require_once '../lib/ts3.lib.php';
+require_once '../../configuration.php';
+
 class Teamspeak3_lib {
     
     public function Create_Server(){

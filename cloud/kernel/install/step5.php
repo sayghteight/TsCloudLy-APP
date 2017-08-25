@@ -12,15 +12,35 @@ if (isset($_POST['url'])
             
             $url = htmlspecialchars(addslashes($_POST['url']));
             $sitename = htmlspecialchars(addslashes($_POST['namepanel']));
+            $ipserver = htmlspecialchars(addslashes($_POST['ip']));
+            $query = htmlspecialchars(addslashes($_POST['queryport']));
+            $userserver = htmlspecialchars(addslashes($_POST['user']));
+            $passserver = htmlspecialchars(addslashes($_POST['pass']));
+            
             
             // Creamos el fichero de configuración
             $openSql = fopen('../configuration.php', 'w');
                fwrite($openSql, "
 		    <?php
-		    // Sitio web
+		    /*
+		    * Configuration Sitename
+		    */
 		    
 		    \$url = '$url';
 		    \$sitename = '$sitename';
+		    
+		    /*
+		    * Configuration Teamspeak 3 - Server
+		    */
+		    
+		    
+		    \$ip = '$ipserver';
+		    \$Qport = '$query';
+		    \$SAuser = '$userserver';
+		    \$SApass = '$passserver';
+		    
+		    
+		    
 		    ?>");
 		    fclose($openSql);
 		    

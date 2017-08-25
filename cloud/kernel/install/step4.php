@@ -30,6 +30,26 @@
 		<label class="sr-only" for="form-password">Nombre del sitio web</label>
 		<input type="text" name="namepanel" placeholder="Nombre de tu sitio web" class="form-last-name form-control">
 		</div>
+		<hr>
+		<h1><center>Configuración teamspeak 3</center></h1>
+		<hr>
+		
+		<div class="form-group">
+		<label class="sr-only" for="form-password">IP Servidor maestro</label>
+		<input type="text" name="ip" placeholder="Ip server master" class="form-last-name form-control">
+		</div>
+		<div class="form-group">
+		<label class="sr-only" for="form-password">QueryPort</label>
+		<input type="text" name="queryport" placeholder="Default is 10011" class="form-last-name form-control">
+		</div>
+		<div class="form-group">
+		<label class="sr-only" for="form-password">Serveradmin user</label>
+		<input type="text" name="user" placeholder="Serveradmin user" class="form-last-name form-control">
+		</div>
+		<div class="form-group">
+		<label class="sr-only" for="form-password">Serveradmin password</label>
+		<input type="text" name="pass" placeholder="Serveradmin password" class="form-last-name form-control">
+		</div>
     
     
     <input type="hidden" name="tokenconfig" class="btn btn-default form-control" value="<?php echo $_SESSION['tokenconfig'] ?>">
