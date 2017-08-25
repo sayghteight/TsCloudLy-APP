@@ -1,5 +1,7 @@
 <?php
-require_once("../../kernel/database/class.db.php");
+// Configuration
+require_once("kernel/configuration.php");
+require_once("kernel/database/class.db.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,14 +11,14 @@ require_once("../../kernel/database/class.db.php");
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Control Panel | Teamspeak 3</title>
+        <title><?php echo $sitename ?></title>
 
         <!-- CSS -->
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
-        <link rel="stylesheet" href="../../assets/bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="../../assets/font-awesome/css/font-awesome.min.css">
-		<link rel="stylesheet" href="../../assets/css/form-elements.css">
-        <link rel="stylesheet" href="../../assets/css/style.css">
+        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="assets/css/form-elements.css">
+        <link rel="stylesheet" href="assets/css/style.css">
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -38,12 +40,7 @@ require_once("../../kernel/database/class.db.php");
                 	
                     <div class="row">
                         <div class="col-sm-8 col-sm-offset-2 text">
-                            <h1>Cloud Teamspeak 3 | <strong>Division Zero</strong></h1>
-                            <div class="description">
-                            	<p>
-	                            	Disfruta de un panel seguro y cloud para tu empresa
-                            	</p>
-                            </div>
+                            <h1><?php echo $sitename ?></h1>
                         </div>
                     </div>
                     
@@ -169,10 +166,10 @@ require_once("../../kernel/database/class.db.php");
         </footer>
 
         <!-- Javascript -->
-        <script src="../../assets/js/jquery-1.11.1.min.js"></script>
-        <script src="../../assets/bootstrap/js/bootstrap.min.js"></script>
-        <script src="../../assets/js/jquery.backstretch.min.js"></script>
-        <script src="../../assets/js/scripts.js"></script>
+        <script src="assets/js/jquery-1.11.1.min.js"></script>
+        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="assets/js/jquery.backstretch.min.js"></script>
+        <script src="assets/js/scripts.js"></script>
         
         <!--[if lt IE 10]>
             <script src="assets/js/placeholder.js"></script>

@@ -57,7 +57,7 @@ switch (ERROR_REPORTING)
     }
     else
     {
-	header("Location: modules/login/index.php");
+	header("Location: login.php");
     }
 
 ?>
