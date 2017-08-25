@@ -158,20 +158,14 @@ public function logueo() {
 
         if (sizeof($this->login) > 0) {
             foreach ($this->login as $key) {
-            /*
-            *   Old variables
-            *    $_SESSION["id"] = $key["id"];
-            *    $_SESSION["nombre"] = $key["nombre"];
-            *    $_SESSION["tipo"] = $key["tipo"];
-            */
             
             $_SESSION["usuario"] = $key["nick"];
             $_SESSION["tipo"] = $key["rango"];
             
                 switch ($_SESSION["tipo"]) {
-                    case 1 : header ("Location: index.php?p=user"); // Usuario
+                    case 1 : header ("Location: user.php"); // Usuario
                     break;
-                    case 2 : header ("Location: index.php?p=cloud"); // Distribuidor
+                    case 2 : header ("Location: reseller.php"); // Distribuidor
                     break;
                     case 3: header("Location: admin.php"); // Admin
                     break;
