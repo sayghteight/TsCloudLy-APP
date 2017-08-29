@@ -32,6 +32,9 @@
 	define("SQL_Username", "");
 	define("SQL_Password", "");
 	define("SQL_Port", "3306");
+	define("SQL_Mode", "mysqli");
+	define("SQL_SSL", "0");
+
 
 
 	/*

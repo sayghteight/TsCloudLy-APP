@@ -1,7 +1,9 @@
 <?php
 session_start();
 abstract class Conexion{
- 
+
+/*
+
 public function conectar() {
       
    $dsn = 'c9';
@@ -21,7 +23,9 @@ public function conectar() {
  return $mysqli;
 }
             
-            
+*/
+
+
 }
 
 
