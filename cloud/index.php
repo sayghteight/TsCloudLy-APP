@@ -59,5 +59,5 @@ switch (ERROR_REPORTING)
     {
 	header("Location: login.php");
     }
-
+ 
 ?>

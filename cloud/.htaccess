@@ -1,8 +1,1 @@
-<IfModule mod_rewrite.c>
-    RewriteEngine On 
-    RewriteCond %{REQUEST_FILENAME} !-f 
-    RewriteCond %{REQUEST_FILENAME} !-d 
-    
-    RewriteRule ^(.*)$ index.php?pg=$1 [L] 
- 
-</IfModule>
+ErrorDocument 404 https://cpts3-sayghteight.c9users.io/cloud/errors/404.html 

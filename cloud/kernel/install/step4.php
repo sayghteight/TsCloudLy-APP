@@ -13,42 +13,25 @@
                             <h1>Cloud Teamspeak 3 | Instalación</h1>
                             <div class="description">
                             	<p>
-	                            	Vamos a pasar un momento configurando tu panel, únicamente rellena
-	                            	lo que te pedimos a continuación.
+                            	    Creando el usuario que usaras como administrador
                             	</p>
                             </div>
                         </div>
                     </div>
 
-<form method="POST" action="step5.php">
+<form method="POST" action="execute/e_admin.php">
     
        	<div class="form-group">
-		<label class="sr-only" for="form-first-name">URL</label>
-		<input type="text" name="url" placeholder="Dirección URL del sitio web" class="form-first-name form-control">
+		<label class="sr-only" for="form-first-name">Usuario</label>
+		<input type="text" name="user" placeholder="Tu usuario ..." class="form-first-name form-control">
 		</div>
 		<div class="form-group">
-		<label class="sr-only" for="form-password">Nombre del sitio web</label>
-		<input type="text" name="namepanel" placeholder="Nombre de tu sitio web" class="form-last-name form-control">
-		</div>
-		<hr>
-		<h1><center>Configuración teamspeak 3</center></h1>
-		<hr>
-		
-		<div class="form-group">
-		<label class="sr-only" for="form-password">IP Servidor maestro</label>
-		<input type="text" name="ip" placeholder="Ip server master" class="form-last-name form-control">
+		<label class="sr-only" for="form-password">E-Mail</label>
+		<input type="text" name="email" placeholder="Tu e-mail ..." class="form-last-name form-control">
 		</div>
 		<div class="form-group">
-		<label class="sr-only" for="form-password">QueryPort</label>
-		<input type="text" name="queryport" placeholder="Default is 10011" class="form-last-name form-control">
-		</div>
-		<div class="form-group">
-		<label class="sr-only" for="form-password">Serveradmin user</label>
-		<input type="text" name="user" placeholder="Serveradmin user" class="form-last-name form-control">
-		</div>
-		<div class="form-group">
-		<label class="sr-only" for="form-password">Serveradmin password</label>
-		<input type="text" name="pass" placeholder="Serveradmin password" class="form-last-name form-control">
+		<label class="sr-only" for="form-password">Password</label>
+		<input type="password" name="password" placeholder="Tu contraseña ..." class="form-last-name form-control">
 		</div>
     
     

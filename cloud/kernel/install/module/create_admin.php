@@ -40,11 +40,11 @@ public function create_admin() {
             $_SESSION["rango"] = $rango;
 
             echo "<script type='text/javascript'>
-            window.location='../step7.php';
+            window.location='../step5.php';
             </script>";
         } else {
             echo "<script type='text/javascript'>
-            window.location='step6.php';
+            window.location='../step4.php';
             </script>";
         }
     

@@ -48,15 +48,7 @@ public function create_user() {
         $registros = $resultado->num_rows; 
 
         if ($registros == 0) {
-            /*
-            $resultado = $this->mysqli->query("INSERT INTO usuarios(nick, password, nombre, correo, tipo, facebook, twitter, fechaderegistro, ultimoacceso, activo, avatar, firma) 
-              VALUES('$nick','$pass', '$nombre', '$correo', '$tipo', '$facebook', '$twitter', now(), now(), '$activo', '$avatar', '$firma')"); 
-            */
-            
             $resultado = $this->mysqli->query("INSERT INTO usuarios(nick, password, correo, rango, activo) VALUES('$nick', '$pass', '$correo', '$rango', '$activo')");
-            
-         
-          
             // OBTENEMOS EL ULTIMO ID
             $id = $this->mysqli->insert_id;
             
@@ -264,6 +256,8 @@ public function deleteFollow() {
             
         }
 }
+
+
 
 
 }
