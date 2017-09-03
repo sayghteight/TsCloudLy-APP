@@ -20,7 +20,8 @@ if (isset($_POST['dbhostname'])
         if (ctype_digit($_POST['dbport'])
         && $_POST['dbport'] >= 0)
         {
-            // Recuperamos los valores del formulario
+            
+            
             
             $dbname = htmlspecialchars(addslashes($_POST['dbname']));
             $dbhostname = htmlspecialchars(addslashes($_POST['dbhostname']));
@@ -29,35 +30,27 @@ if (isset($_POST['dbhostname'])
             $dbport = htmlspecialchars(addslashes($_POST['dbport']));
             
             // Creamos el fichero de configuración
-            $openSql = fopen('../database/class.db.php', 'w');
+            $openSql = fopen('../database/configuration.php', 'w');
                fwrite($openSql, "
 		    <?php
 		    
-		    session_start();
-		    abstract class Conexion{
-            public function conectar() {
-      
-            \$dsn = '$dbname';
-            \$host='$dbhostname';
-            \$port='$dbport';
-		    \$user = '$dbuser';
-		    \$password = '$dbpassw';
-		
-		          
-            \$mysqli = new mysqli(\$host,\$user,\$password,\$dsn,\$port) 
-            or die('No se pudo conectar: ' . mysql_error());
-            echo 'Connected successfully';
-      
-            if (\$mysqli->connect_errno)
-           \$mysqli->set_charset('utf8');
-      
-            return \$mysqli;
-            }
-            
-            public function ruta(){
-                
-            }
-            }
+		    /*
+		    Info:
+		    Configuraciones simples, redirecciones y otros.
+	        */
+	
+
+	        /*
+		    Heading Website
+	        */
+	
+	        \$website = '';
+
+	        /*
+		    Language from your Webinterface (default: english)
+	        */
+	
+		    
 		    ?>");
 		    fclose($openSql);
         }
@@ -105,9 +98,12 @@ else
                             	<br/>
                             	<strong>usuarios</strong> <font color='green'>Creada con éxito</font>
                             	<br/>
+                            	<strong>Creado el archivo de configuration.php</strong> <font color='green'>Creado con éxito</font>
+                            	<br/>
                             </div>
                         </div>
                     </div>
+                    
 
 		    <form method="POST" action="execute/e_installdb.php">
 		          <button type="submit" class="btn form-control" name="install"> Continuar con el siguiente paso --> </button>

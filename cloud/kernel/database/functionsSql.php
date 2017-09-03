@@ -21,28 +21,25 @@
 	/*
 		Crear conexión base de datos
 	*/
-	function getSqlConnection($withError = true)
+	function getSQLcms()
 	{
-		if(SQL_Database == "")
-		{
-			return ($withError) ? "No se ha selecionado la base de datos" : false;
-		};
-		
-		$string						=	SQL_Mode.':host='.SQL_Hostname.';port='.SQL_Port.';dbname='.SQL_Database.'';
-		if(SQL_SSL != "0")
-		{
-			$string					.=	';sslmode=require';
-		};
-		
-		try
-		{
-			$databaseConnection 	= 	new PDO($string, SQL_Username, SQL_Password);
-			
-			return $databaseConnection;
+		$mysqli_cms = new mysqli($hostname, $username, $password, $database);
+		if ($mysqli->connect_errno) {
+    	exit();
 		}
-		catch (PDOException $e)
-		{
-			return ($withError) ? "Failed to get DB handle: " . $e->getMessage() . "\n" : false;
-		};
+		$result = $mysqli_cms->query("SELECT * FROM config LIMIT 1");
+		$row = $result->fetch_assoc();
+	};
+	
+	/*
+	*	Theme System
+	*/
+	
+	function getThemePlataform()
+	{
+		$theme_id = $row["theme"];
+		$theme_result = $mysqli_cms->query("SELECT * FROM themes where id=$theme_id");
+		$theme_row = $theme_result->fetch_assoc();
+		$theme_name = $theme_row["name"];
 	};
 	
