@@ -49,15 +49,12 @@ switch (ERROR_REPORTING)
  *
  */
 
-    $config = 'kernel/database/class.db.php';
-    $install = filesize($config);
-    if ($install == 0) 
-    {
-    header("Location: kernel/install/index.php");
-    }
-    else
-    {
-	header("Location: login.php");
-    }
+	include 'kernel/config/site_config.php';
+
+	if ($installed == false) {
+		header("Location: install.php");
+	} else {
+		header("Location: home.php");
+	}
  
 ?>

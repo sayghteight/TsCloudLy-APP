@@ -1,0 +1,463 @@
+
+/*! * Start Bootstrap - Simple Sidebar (http://startbootstrap.com/) * Copyright 2013-2016 Start Bootstrap * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE) */
+body
+{
+	overflow-x: hidden;
+	padding-top: 70px;
+	/* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+}
+
+/* Toggle Styles */
+#wrapper
+{
+	padding-left: 0;
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+}
+
+#wrapper.toggled
+{
+	padding-left: 250px;
+}
+
+#sidebar-wrapper
+{
+	z-index: 1000;
+	position: fixed;
+	left: 250px;
+	width: 0;
+	height: 100%;
+	margin-left: -250px;
+	overflow-y: auto;
+	background: #2c3e50;
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+}
+
+#wrapper.toggled #sidebar-wrapper
+{
+	width: 250px;
+}
+
+#page-content-wrapper
+{
+	width: 100%;
+	position: absolute;
+	padding: 15px;
+}
+
+#wrapper.toggled #page-content-wrapper
+{
+	position: absolute;
+	margin-right: -250px;
+}
+
+/* Sidebar Styles */
+.sidebar-nav
+{
+	position: absolute;
+	top: 0;
+	width: 250px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.sidebar-nav p, h1, h2, h3, h4, h5, h6
+{
+	color: #ef6b00;
+}
+
+.sidebar-nav li
+{
+	text-indent: 20px;
+	line-height: 40px;
+}
+
+.sidebar-nav li a
+{
+	display: block;
+	text-decoration: none;
+	color: #fff;
+}
+
+.sidebar-nav li a:hover
+{
+	text-decoration: none;
+	color: #18bc9c;
+}
+
+li a.activer
+{
+	color: #18bc9c;
+}
+
+.sidebar-nav li a:active,.sidebar-nav li a:focus
+{
+	text-decoration: none;
+}
+
+.sidebar-nav > .sidebar-brand
+{
+	height: 65px;
+	font-size: 18px;
+	line-height: 60px;
+}
+
+.sidebar-nav > .sidebar-brand a
+{
+	color: #fff;
+}
+
+.sidebar-nav > .sidebar-brand a:hover
+{
+	color: #fff;
+	background: none;
+}
+
+@media(min-width:768px)
+{
+	#wrapper
+	{
+		padding-left: 250px;
+	}
+
+	#wrapper.toggled
+	{
+		padding-left: 0;
+	}
+
+	#sidebar-wrapper
+	{
+		width: 250px;
+	}
+
+	#wrapper.toggled #sidebar-wrapper
+	{
+		width: 0;
+	}
+
+	#page-content-wrapper
+	{
+		padding: 20px;
+		position: relative;
+	}
+
+	#wrapper.toggled #page-content-wrapper
+	{
+		position: relative;
+		margin-right: 0;
+	}
+}
+
+.point
+{
+	cursor: pointer;
+}
+
+.text-decoration
+{
+	text-decoration: none;
+}
+
+.avatar-md
+{
+	border-radius: 100%;
+	height: 100px;
+	width: 100px;
+}
+
+.avatar-xs
+{
+	border-radius: 100%;
+	height: 25px;
+	width: 25px;
+}
+
+.slide-image
+{
+	width: 100%;
+}
+
+.carousel-holder
+{
+	margin-bottom: 30px;
+}
+
+.carousel-control,.item
+{
+	border-radius: 4px;
+}
+
+.caption
+{
+	height: 130px;
+	overflow: hidden;
+}
+
+.caption h4
+{
+	white-space: nowrap;
+}
+
+.thumbnail img
+{
+	width: 100%;
+}
+
+.ratings
+{
+	padding-right: 10px;
+	padding-left: 10px;
+	color: #d17581;
+}
+
+.thumbnail
+{
+	padding: 0;
+}
+
+.thumbnail .caption-full
+{
+	padding: 9px;
+	color: #333;
+}
+
+footer
+{
+	margin: 50px 0;
+}
+
+.portfolio-item
+{
+	margin-bottom: 25px;
+}
+
+/*! * How it Works section */
+
+
+.order-process-step2 {
+    padding: 50px 0px;
+}
+.process-block2 {
+    display: block;
+    color: #7e8890;
+    overflow: hidden;
+}
+.process-block2 h5 {
+    text-align: center;
+    margin-top: -10px;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+ol.process2 {
+    margin-top: 20px;
+    margin-left: 32px;
+    padding: 0;
+    list-style-type: none;
+    counter-reset: li-counter;
+}
+ol.process2 > li {
+    position: relative;
+    text-align: center;
+    padding: 15px;
+    border-radius: 5px;
+}
+ol.process2 > li > p {
+    font-style: italic;
+}
+ol.process2 > li:before {
+    position: absolute;
+    left: -18px;
+    top: -18px;
+    font-size: 22px;
+    display: inline-block;
+    line-height: 36px;
+    width: 36px;
+    text-align: center;
+    border-radius: 35px;
+    color: #fff;
+    font-weight: 700;
+    background-color: red;
+    box-shadow: 0 0 0 1px #fff;
+    content: counter(li-counter);
+    counter-increment: li-counter;
+}
+ol.process2 li:nth-child(even) {
+    border-top: 1px dashed #7e8890;
+}
+ol.process2 li:nth-child(odd) {
+    border: 1px dashed #7e8890;
+    border-top: 0;
+}
+ol.process2 i {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    line-height: 100px;
+    font-size: 4em;
+    color: red;
+    border-radius: 50%;
+}
+ol.process2 h4{
+   font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #0c0200;
+}
+
+/*icon-hover-animation*/
+
+@-webkit-keyframes pulse-shrink {
+    to {
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8);
+}
+}
+@keyframes pulse-shrink {
+    to {
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8);
+}
+}
+ol.process2 li:hover i,
+ol.process2 li:focus i,
+ol.process2 li:active i {
+    -webkit-animation-name: pulse-shrink;
+    animation-name: pulse-shrink;
+    -webkit-animation-duration: 0.3s;
+    animation-duration: 0.3s;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+    animation-direction: alternate;
+}
+.wc-backward{
+    font-size: 14px!important;
+    color: #fff!important;
+    background: #e95959!important;
+}
+
+.text-red{
+	color: #ff0000;
+	font-size: 15px;
+}
+
+
+.alert-purple { border-color: #694D9F;background: #694D9F;color: #fff; }
+.alert-info-alt { border-color: #B4E1E4;background: #81c7e1;color: #fff; }
+.alert-danger-alt { border-color: #B63E5A;background: #E26868;color: #fff; }
+.alert-warning-alt { border-color: #F3F3EB;background: #E9CEAC;color: #fff; }
+.alert-success-alt { border-color: #19B99A;background: #20A286;color: #fff; }
+.glyphicon { margin-right:10px; }
+.alert a {color: gold;}
+
+
+
+#PricingTab {
+    background-image: url('http://techprocircle.com/wp-content/uploads/2016/08/pricing_bg.jpg');
+	background-size: 100% 100%;
+	background-attachment: fixed;
+	padding: 100px 0;
+}
+#PricingTab h2{
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-size: 35px;
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+}
+#PricingTab table{
+	max-width:800px;
+	margin: 0 auto;
+	box-shadow: 1px 1px 149px 0px rgb(24, 25, 25);
+}
+
+.tabco1 {
+  background: #fff;
+  width: 40%;
+  padding: 10px !important;
+}
+th.tabco1 {
+	background: #fff;
+	padding: 32px 10px !important;
+	font-size: 18px;
+	text-transform: uppercase;
+	color: #000;
+}
+.tabco2 {
+  background: #009688;
+  text-align: center;
+  color: #fff;
+}
+ 
+th.tabco2 {
+	background: #00C853;
+	padding: 20px 5px !important;
+	font-size: 18px;
+	text-transform: uppercase;
+}
+.tabco3 {
+  background: #03A9F4;
+  text-align: center;
+  color: #fff;
+}
+th.tabco3 {
+	background: #039BE5;
+
+	padding: 20px 10px !important;
+	font-size: 18px;
+	text-transform: uppercase;
+}
+.tabco4 {
+  background: #EF5350;
+  text-align: center;
+  color: #fff;
+}
+th.tabco4 {
+	background: #E53935;
+	
+	padding: 20px 10px !important;
+	font-size: 18px;
+	text-transform: uppercase;
+}
+.rightSign {
+	color: #1ab921;
+	background: #fff;
+	border-radius: 45px;
+	padding: 5px;
+	border: 2px solid;
+	box-shadow: 0px 0px 11px -5px #000;
+}
+.crossSign {
+	color: #de2315;
+	background: #fff;
+	border-radius: 45px;
+	padding: 5px 7px;
+	border: 2px solid;
+	box-shadow: 0px 0px 11px -5px #000;
+}
+.White-Yellow {
+    border-top: 0;
+    border-left: 75px solid #fff;
+    border-right: 75px solid #FEF200;
+    height: 5px;
+    width: 0px;
+}
+
+
+.tc-commits ul {
+  padding-left: 0;
+}
+
+.tc-commits ul li {
+  background-color: black;
+  margin: 4px;
+}
